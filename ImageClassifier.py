@@ -34,19 +34,20 @@ model = keras.Sequential([
 # (how far off from the correct node)
 # 2. Optimizer functions tells how to modify weight values to get more correct values
 # (lower or increase proper edge weights)
-model.compile(optimizer=tf.optimizers.Adam(), loss='sparse_categorical_crossentropy')
+model.compile(optimizer=tf.optimizers.Adam(), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 #Start to train. Epochs=number of times passing through the neural net
 model.fit(train_imgs, train_labels, epochs=5)
 
-#Test model with test data
+#Test model with test data (how much loss is there)
 test_loss = model.evaluate(test_imgs, test_labels)
-
-#Display to test personally
-plt.imshow(test_imgs[0], cmap='gray', vmin=0, vmax=255)
-plt.show()
-print(test_labels[0])
+print('Test loss ' + str(test_loss[0]))
 
 #Predict with the model
 predictions = model.predict(test_imgs)
+
+#Test print with test_image 0, should be 9 for ankle boot
+print(test_labels[0])
 print(predictions[0])
+print(list(predictions[0]).index(max(predictions[0])))
+plt.imshow(test_imgs[0], cmap='gray', vmin=0, vmax=255)
