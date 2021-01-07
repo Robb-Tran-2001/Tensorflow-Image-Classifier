@@ -7,7 +7,8 @@ import matplotlib.pyplot as plt
 
 from tensorflow import keras
 
-#Import 60,000 28 x 28 images from the dataset
+#Import 60,000 28 x 28 images from the dataset, 
+#Returns Tuple[Tuple[np.ndarray, np.ndarray], Tuple[np.ndarray, np.ndarray]]
 fashion_mnist = keras.datasets.fashion_mnist
 (train_imgs, train_labels), (test_imgs, test_labels) = fashion_mnist.load_data()
 
