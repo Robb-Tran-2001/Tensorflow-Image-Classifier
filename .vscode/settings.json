@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python38",
+    "python.linting.enabled": true,
+    "launch": {
+
+        "configurations": [],
+        "compounds": []
+    }
+}
